@@ -1,0 +1,40 @@
+GET http://localhost:8080/api/v1/health-check
+
+### Save test
+POST http://localhost:8080/api/v1/test
+Content-Type: application/json
+
+{
+  "title": "Harry Potter and Prisoner of Azkaban",
+  "description": "Harry Potter and Prisoner of Azkaban - Third book in the Harry potter series",
+  "published": true
+}
+
+### Save test
+POST http://localhost:8080/api/v1/test
+Content-Type: application/json
+
+{
+  "title": "Harry Potter and the Order of the Phoenix",
+  "description": "Harry Potter and Prisoner of Azkaban - Fifth book in the Harry potter series",
+  "published": true
+}
+
+### Save test
+POST http://localhost:8080/api/v1/test
+Content-Type: application/json
+
+{
+  "title": "Dummy book",
+  "description": "Dummy book - This is a test entry",
+  "published": false
+}
+
+### Get all Tests
+GET http://localhost:8080/api/v1/test
+
+### Get Test by id
+GET http://localhost:8080/api/v1/test/3
+
+### Get Test by title pattern
+GET http://localhost:8080/api/v1/test/title/potter
