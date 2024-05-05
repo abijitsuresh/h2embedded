@@ -1,7 +1,7 @@
 package com.abijit.h2embedded.controller;
 
-import com.abijit.h2embedded.model.Test;
-import com.abijit.h2embedded.service.TestService;
+import com.abijit.h2embedded.model.Book;
+import com.abijit.h2embedded.service.BooksService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -9,28 +9,28 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api/v1/test")
+@RequestMapping("/api/v1/books")
 @RequiredArgsConstructor
-public class TestController {
-    private final TestService testService;
+public class BooksController {
+    private final BooksService booksService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public Flux<Test> getTests() {
-        return testService.getAll();
+    public Flux<Book> getBooks() {
+        return booksService.getAll();
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Mono<Test> createTest(@RequestBody Test test) {
-        return testService.save(test);
+    public Mono<Book> createBook(@RequestBody Book book) {
+        return booksService.save(book);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Mono<Test> getTest(@PathVariable int id) {
-        return testService.getById(id);
+    public Mono<Book> getBook(@PathVariable int id) {
+        return booksService.getById(id);
     }
 
     @GetMapping(value = "/title/{title-pattern}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Flux<Test> getTestsByTitlePattern(@PathVariable("title-pattern") String titlePattern) {
-        return testService.getByTitleContaining(titlePattern);
+    public Flux<Book> getBooksByTitlePattern(@PathVariable("title-pattern") String titlePattern) {
+        return booksService.getByTitleContaining(titlePattern);
     }
 }

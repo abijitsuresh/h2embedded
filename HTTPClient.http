@@ -1,7 +1,7 @@
-GET http://localhost:8080/api/v1/health-check
+GET http://localhost:9090/api/v1/health-check
 
-### Save test
-POST http://localhost:8080/api/v1/test
+### Save book
+POST http://localhost:9090/api/v1/books
 Content-Type: application/json
 
 {
@@ -10,8 +10,8 @@ Content-Type: application/json
   "published": true
 }
 
-### Save test
-POST http://localhost:8080/api/v1/test
+### Save book
+POST http://localhost:9090/api/v1/books
 Content-Type: application/json
 
 {
@@ -20,21 +20,21 @@ Content-Type: application/json
   "published": true
 }
 
-### Save test
-POST http://localhost:8080/api/v1/test
+### Save books
+POST http://localhost:9090/api/v1/books
 Content-Type: application/json
 
 {
   "title": "Dummy book",
-  "description": "Dummy book - This is a test entry",
+  "description": "Dummy book - This is a book entry",
   "published": false
 }
 
-### Get all Tests
-GET http://localhost:8080/api/v1/test
+### Get all Books
+GET http://localhost:9090/api/v1/books
 
-### Get Test by id
-GET http://localhost:8080/api/v1/test/3
+### Get Book by id
+GET http://localhost:9090/api/v1/books/3
 
-### Get Test by title pattern
-GET http://localhost:8080/api/v1/test/title/potter
+### Get Book by title pattern
+GET http://localhost:9090/api/v1/books/title/potter
